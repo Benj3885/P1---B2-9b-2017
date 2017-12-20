@@ -1,0 +1,8 @@
+prefix=/home/benjamin/catkin_ws/devel
+
+Name: brain2
+Description: Description of brain2
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/benjamin/catkin_ws/devel/lib 
+Requires: 

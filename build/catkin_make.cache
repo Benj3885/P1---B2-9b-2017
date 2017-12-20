@@ -1,0 +1,2 @@
+brain:image
+-DCATKIN_DEVEL_PREFIX=/home/benjamin/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/benjamin/catkin_ws/install -G Unix Makefiles

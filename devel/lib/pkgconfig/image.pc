@@ -1,0 +1,8 @@
+prefix=/home/benjamin/catkin_ws/devel
+
+Name: image
+Description: Description of image
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/benjamin/catkin_ws/devel/lib 
+Requires: 

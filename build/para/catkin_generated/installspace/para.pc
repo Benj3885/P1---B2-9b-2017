@@ -1,0 +1,8 @@
+prefix=/home/benjamin/catkin_ws/install
+
+Name: para
+Description: Description of para
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/benjamin/catkin_ws/install/lib 
+Requires: 
