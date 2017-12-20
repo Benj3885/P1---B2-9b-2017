@@ -8,7 +8,6 @@
 #include "move_base_msgs/MoveBaseAction.h"
 #include "actionlib/client/simple_action_client.h"
 
-// Not completely sure
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
 // Global variable to keep track of how long since the last resource was spotted
@@ -60,9 +59,6 @@ class brain
   resources *root = new resources;
   resources *current = root;
 
-  // Counter for how many resources has been found
-  unsigned int count = 0;
-
   // Robot's location variables
   double locx = 0, locy = 0;
   double yaw_degrees = 0;
@@ -86,7 +82,7 @@ class brain
     target = true;
 
     // If the robot is looking straight at the object
-    // A tolerance of 0.7 degrees has been given
+    // A tolerance of 1 degrees has been given
     if(turn > -1 && turn < 1){
       // A delay to make sure that all topics has been received before attempting to read them
       ros::Duration(0.2).sleep();
@@ -96,7 +92,7 @@ class brain
       current->x = cos(yaw_degrees) * distance + locx;
       current->y = sin(yaw_degrees) * distance + locy;
 
-      // Targte is set to false because the object has already been recorded
+      // Target is set to false because the object has already been recorded
       target = false;
       end = true;
 
