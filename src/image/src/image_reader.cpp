@@ -79,7 +79,7 @@ class ImageConverter
 
     //If not enough pixels has been seen, the if-statement won't run
     if(AreaR > 30000){
-      //x- and y-values are found fro moments
+      //x- and y-values are found from moments
       unsigned int xR = m10R / AreaR;
       unsigned int yR = m01R / AreaR;
 
@@ -138,7 +138,7 @@ class ImageConverter
 
     //If the robot is looking at the object to measure, and it has seen a color, it will call depth image
     if(turn.data > -0.2 && turn.data < 0.2)
-      if(!red && !yellow) //I have no idea why this works, but it somehow does...
+      if(!red && !yellow)
         depth_sub = it.subscribe("/camera/depth/image", 1, &ImageConverter::depthCb, this);
 
     //The lines are added to the image
@@ -153,13 +153,12 @@ class ImageConverter
     cv::imshow("Y", ThreshImageY);
     cv::imshow("R", ThreshImageR);
 
-    //I'm not quite sure how it works, but it's supposed to wait for 3 millisecond or a keystroke
     cv::waitKey(3);
   }
 
   void depthCb(const sensor_msgs::ImageConstPtr &msg)
   {
-    //Same story as before, poiter and image
+    //Same story as before, pointer and image
     cv_bridge::CvImagePtr depth_ptr;
     depth_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::TYPE_32FC1);
     cv::Mat depthImage = depth_ptr->image;
